@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+echo "Removing old zip file..."
+rm ./OldZipFile.zip
+echo "Successully removed FloodAlerts.zip!"
+zip -r NewZipFile.zip ./* -x UploadNewLambdaVersion
+echo "Created new zip file!"
+echo "Updating lambda function using aws cli..."
+aws lambda update-function-code \
+        --function-name "LambdaFunctionName" \
+        --zip-file "fileb://./NewZipFile.zip" \
+        --region "aws-region"
+echo "Lambda code Successully updated!"
