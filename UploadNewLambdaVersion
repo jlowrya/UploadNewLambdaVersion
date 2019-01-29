@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 echo "Removing old zip file..."
 rm ./OldZipFile.zip
-echo "Successully removed FloodAlerts.zip!"
+echo "Successully removed NewZipFile.zip!"
 zip -r NewZipFile.zip ./* -x UploadNewLambdaVersion
 echo "Created new zip file!"
 echo "Updating lambda function using aws cli..."
